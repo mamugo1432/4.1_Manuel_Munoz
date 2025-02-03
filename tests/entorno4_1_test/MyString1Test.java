@@ -24,21 +24,56 @@ class MyString1Test {
 	@Test
 	void testContarLetrasDiferentes() {
 		assertNotEquals(0, MyString1.contarLetrasDiferentes("ASdg"));
+		assertEquals(0, MyString1.contarLetrasDiferentes(""));
+		assertNotEquals(1, MyString1.contarLetrasDiferentes(" "));
+		assertEquals(0, MyString1.contarLetrasDiferentes(null));
+		assertEquals(4, MyString1.contarLetrasDiferentes(" hola"));
+		assertEquals(4, MyString1.contarLetrasDiferentes("hola "));
+		assertEquals(0, MyString1.contarLetrasDiferentes(" 123 "));
+		assertEquals(0, MyString1.contarLetrasDiferentes("\n"));
 	}
+
+	
+	
 
 	@Test
 	void testContarFrecuenciaPalabras() {
-		assertNotEquals(100, MyString1.contarLetrasDiferentes("ASdg"));
+		assertNotEquals(1, MyString1.contarFrecuenciaPalabras(null));
+		assertNotEquals(1, MyString1.contarFrecuenciaPalabras(""));
+		assertNotEquals(1, MyString1.contarFrecuenciaPalabras(" "));
+		assertNotEquals(1, MyString1.contarFrecuenciaPalabras("hola"));
+		assertNotEquals(1, MyString1.contarFrecuenciaPalabras(" hola"));
+		assertNotEquals(1, MyString1.contarFrecuenciaPalabras(" hola "));
+		assertNotEquals(1, MyString1.contarFrecuenciaPalabras("hola "));
+		assertNotEquals(1, MyString1.contarFrecuenciaPalabras("1"));
+		assertNotEquals(1, MyString1.contarFrecuenciaPalabras("\n"));
 	}
 
 	@Test
 	void testContarFrecuenciaLetras() {
 		assertNotEquals(0, MyString1.contarLetrasDiferentes("ASdg"));
+		assertEquals(0, MyString1.contarLetrasDiferentes(""));
+		assertEquals(0, MyString1.contarLetrasDiferentes(null));
+		assertEquals(0, MyString1.contarLetrasDiferentes(" "));
+		assertEquals(0, MyString1.contarLetrasDiferentes("1"));
+		assertEquals(0, MyString1.contarLetrasDiferentes("\t"));
+		assertEquals(4, MyString1.contarLetrasDiferentes(" ASdg"));
+		assertEquals(4, MyString1.contarLetrasDiferentes("ASdg "));
+		assertEquals(4, MyString1.contarLetrasDiferentes(" ASdg "));
 	}
 
 	@Test
 	void testEsPalindroma() {
-		assertNotEquals(false, MyString1.contarLetrasDiferentes("ASdg"));
+		assertEquals(false,MyString1.esPalindroma(null));
+		assertEquals(false,MyString1.esPalindroma(""));
+		assertNotEquals(false,MyString1.esPalindroma(" "));
+		assertNotEquals(false,MyString1.esPalindroma("ANa"));
+		assertNotEquals(false,MyString1.esPalindroma(" ANa"));
+		assertNotEquals(false,MyString1.esPalindroma(" ANa "));
+		assertNotEquals(false,MyString1.esPalindroma("ANa "));
+		assertEquals(true, MyString1.esPalindroma("ana"));
+		assertEquals(true, MyString1.esPalindroma("a luna ese anula"));
+		assertEquals(true, MyString1.esPalindroma("1"));
 	}
 
 }
