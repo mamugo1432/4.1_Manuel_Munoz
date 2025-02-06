@@ -28,7 +28,7 @@ public class MyString1 {
 	if (str == null || str.isEmpty()) {
 	return frecuenciaPalabras;
 	}
-	String[] palabras = str.toLowerCase().split("\\s+");
+	String[] palabras = str.toLowerCase().trim().split("\\s+");
 	for (String palabra : palabras) {
 	frecuenciaPalabras.put(palabra, frecuenciaPalabras.getOrDefault(palabra, 0) + 1);
 	}
@@ -41,7 +41,7 @@ public class MyString1 {
 	if (str == null || str.isEmpty()) {
 	return frecuenciaLetras;
 	}
-	str = str.toLowerCase().replaceAll("[^a-z]", "");
+	str = str.toLowerCase().replaceAll("[^a-z]","");
 	for (char c : str.toCharArray()) {
 	frecuenciaLetras.put(c, frecuenciaLetras.getOrDefault(c, 0) + 1);
 	}
