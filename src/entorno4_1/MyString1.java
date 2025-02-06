@@ -6,10 +6,10 @@ public class MyString1 {
 
 	// Método para contar el número de palabras en una cadena
 	public static int contarPalabras(String str) {
-	if (str == null || str.isEmpty()) {
+	if (str == null || str.isEmpty() || str.isBlank()) {
 	return 0;
 	}
-	String[] palabras = str.split("\\s+");
+	String[] palabras = str.trim().split("\\s+");
 	return palabras.length;
 	}
 
