@@ -2,6 +2,9 @@ package entorno4_1_test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.jupiter.api.Test;
 
 import entorno4_1.MyString1;
@@ -14,9 +17,8 @@ class MyString1Test {
 		assertEquals(0, MyString1.contarPalabras(""));
 		assertEquals(0, MyString1.contarPalabras(" "));
 		assertEquals(1, MyString1.contarPalabras("A"));
-		assertNotEquals(1, MyString1.contarPalabras(" ANTON"));
 		assertEquals(1, MyString1.contarPalabras("Anton "));
-		assertNotEquals(1, MyString1.contarPalabras(" Anton "));
+		
 	}
 	
 	
@@ -38,30 +40,35 @@ class MyString1Test {
 
 	@Test
 	void testContarFrecuenciaPalabras() {
-		assertNotEquals(1, MyString1.contarFrecuenciaPalabras(null));
-		assertNotEquals(1, MyString1.contarFrecuenciaPalabras(""));
-		assertNotEquals(1, MyString1.contarFrecuenciaPalabras(" "));
-		assertNotEquals(1, MyString1.contarFrecuenciaPalabras("hola"));
-		assertNotEquals(1, MyString1.contarFrecuenciaPalabras(" hola"));
-		assertNotEquals(1, MyString1.contarFrecuenciaPalabras(" hola "));
-		assertNotEquals(1, MyString1.contarFrecuenciaPalabras("hola "));
-		assertNotEquals(1, MyString1.contarFrecuenciaPalabras("1"));
-		assertNotEquals(1, MyString1.contarFrecuenciaPalabras("\n"));
+		Map<String, Integer> esperada1 = new HashMap<>(Map.of("mundo", 2));
+		 
+		
+		/*assertTrue(esperada1.equals(MyString1.contarFrecuenciaPalabras("hola hola")));
+		esperada1.clear();
+		esperada1.put("mundo", 2);*/
+		
+		assertTrue(esperada1.equals(MyString1.contarFrecuenciaPalabras(" mundo mundo")));
+		assertFalse(esperada1.equals(MyString1.contarFrecuenciaPalabras(null)));
+		assertFalse(esperada1.equals(MyString1.contarFrecuenciaPalabras("")));
+		assertFalse(esperada1.equals(MyString1.contarFrecuenciaPalabras("Hola que tal, amo mi mundo")));
+		assertTrue(esperada1.equals(MyString1.contarFrecuenciaPalabras("                mundo                mundo ")));
+		
+
+		
+		
+
 	}
 
 	@Test
 	void testContarFrecuenciaLetras() {
-		assertNotEquals(0, MyString1.contarLetrasDiferentes("ASdg"));
-		assertEquals(0, MyString1.contarLetrasDiferentes(""));
-		assertEquals(0, MyString1.contarLetrasDiferentes(null));
-		assertEquals(0, MyString1.contarLetrasDiferentes(" "));
-		assertEquals(0, MyString1.contarLetrasDiferentes("1"));
-		assertEquals(0, MyString1.contarLetrasDiferentes("\t"));
-		assertEquals(4, MyString1.contarLetrasDiferentes(" ASdg"));
-		assertEquals(4, MyString1.contarLetrasDiferentes("ASdg "));
-		assertEquals(4, MyString1.contarLetrasDiferentes(" ASdg "));
+		Map<Character, Integer> esperada1 = new HashMap<>(Map.of('m', 2, 'u', 2, 'n', 2, 'd', 2, 'o', 2));
+		assertTrue(esperada1.equals(MyString1.contarFrecuenciaLetras(" mundo mundo")));
+		assertTrue(esperada1.equals(MyString1.contarFrecuenciaLetras(" mundo mundo ")));
+		assertFalse(esperada1.equals(MyString1.contarFrecuenciaLetras("")));
+		assertFalse(esperada1.equals(MyString1.contarFrecuenciaLetras(null)));
 	}
 
+	
 	@Test
 	void testEsPalindroma() {
 		assertEquals(false,MyString1.esPalindroma(null));
@@ -74,6 +81,7 @@ class MyString1Test {
 		assertEquals(true, MyString1.esPalindroma("ana"));
 		assertEquals(true, MyString1.esPalindroma("a luna ese anula"));
 		assertEquals(true, MyString1.esPalindroma("1"));
+		assertNotEquals(true, MyString1.esPalindroma("aw"));
 	}
 
 }
