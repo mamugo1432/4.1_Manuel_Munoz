@@ -33,6 +33,8 @@ class MyString1Test {
 		assertEquals(4, MyString1.contarLetrasDiferentes("hola "));
 		assertEquals(0, MyString1.contarLetrasDiferentes(" 123 "));
 		assertEquals(0, MyString1.contarLetrasDiferentes("\n"));
+		assertEquals(4, MyString1.contarLetrasDiferentes(" hola "));
+		assertEquals(4, MyString1.contarLetrasDiferentes("1 hola "));
 	}
 
 	
