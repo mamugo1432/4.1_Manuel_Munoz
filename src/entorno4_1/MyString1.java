@@ -4,6 +4,25 @@ import java.util.Map;
 
 public class MyString1 {
 
+	private String cadena;
+	private int contadorPalabra;
+	private int contadorLetras;
+	private Map<String, Integer> frecuenciaPalabras = Map.of();
+	private Map<Character, Integer> frecuenciaLetras = Map.of();
+	private boolean esPalindroma;
+	
+	
+	public MyString1(String cadena) {
+		super();
+		this.cadena = cadena;
+		this.contadorPalabra = contarPalabras(this.cadena);
+		this.contadorLetras = contarLetrasDiferentes(this.cadena);
+		this.esPalindroma = esPalindroma(this.cadena);
+		this.frecuenciaPalabras = contarFrecuenciaPalabras(this.cadena);
+		this.frecuenciaLetras = contarFrecuenciaLetras(this.cadena);
+	}
+
+	
 	// Método para contar el número de palabras en una cadena
 	public static int contarPalabras(String str) {
 	if (str == null || str.isEmpty() || str.isBlank()) {
